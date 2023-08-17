@@ -1,0 +1,43 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light nav-container" style="background-color: #0094FF;">
+        <div>
+            <a class="barra" routerLink="/place/main">UnsafeZone</a>
+            <a class="barra2" routerLink="/user/view" *ngIf="role == 'admin'">Usuarios</a> 
+        </div>
+        <div>
+            <button class="navbarIco" type="button" (click)="logout()">
+                <span class="bi bi-box-arrow-right"></span>
+            </button>
+            <button class="navbarIco" type="button" routerLink="/user/profile">
+                <span class="bi bi-person-fill"></span>
+            </button>
+        </div> 
+      </nav>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col pt-5">
+            <button class="btn" routerLink="/place/create">Agregar</button>
+        </div>
+        <div class="col-6 pt-5">
+            <form>
+                <input type="text" class="form-control cajas" name="fullAddress" placeholder="Search..." [(ngModel)]="fullAddress">
+            </form>
+        </div>
+        <div class="col pt-5">
+            <button class="btn" (click)="search();" >Buscar</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-auto pt-5" *ngFor="let place of places">
+            <div class="card" style="width: 18rem;">
+                <img [src]="host+place.picture" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{place.fullAddress}}</h5>
+                    <p class="card-text">{{place.description}}</p>
+                    <a  class="btn" [routerLink]="'/place/view/'+place._id">Ver más</a>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>

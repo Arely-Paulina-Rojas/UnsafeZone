@@ -1,0 +1,55 @@
+.barra{
+
+    color:white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0 40px;
+    font-size: 150%;
+}
+
+.barra2{
+    color:white;
+    text-decoration: none; 
+    font-size: 120%;
+}
+
+.navbarIco{
+    float: right;
+    text-align: center;
+    width: 55px;
+    height: 55px;
+    color: white;
+    border: 0px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 28px;
+    margin-right: 20px;
+    transition: .3s ease all;
+}
+
+.cajas{
+    border-color: #0094FF;
+    border-radius: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.btn{
+    display: inline-block;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #0094FF;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0;
+    width: 100%;
+}
+
+.nav-container{
+    display: flex;
+    justify-content: space-between;
+}

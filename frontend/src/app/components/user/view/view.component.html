@@ -1,0 +1,41 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light nav-container" style="background-color: #0094FF;">
+      <div>
+          <a class="barra" routerLink="/place/main">UnsafeZone</a>
+          <a class="barra2" routerLink="/user/view" >Usuarios</a> 
+      </div>
+      <div>
+          <button class="navbarIco" type="button" (click)="logout()">
+              <span class="bi bi-box-arrow-right"></span>
+          </button>
+          <button class="navbarIco" type="button" routerLink="/user/profile">
+              <span class="bi bi-person-fill"></span>
+          </button>
+      </div> 
+    </nav>
+</header>
+
+<div class="container p-3 my-3 border">
+    <div class="container">
+        <h2 class="word">Usuarios</h2>
+        <table class="table pt-5">
+            <thead>
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Correo electrónico</th>
+                <th scope="col">Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of users">
+                <th scope="row">{{user.name}}</th>
+                <td>{{user.lastName}}</td>
+                <td>{{user.email}}</td>
+                <td><button class="btn" (click)="deleteUser(user._id);">Eliminar</button></td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="btnA" routerLink="/user/create">Agregar</button>
+    </div>
+</div>

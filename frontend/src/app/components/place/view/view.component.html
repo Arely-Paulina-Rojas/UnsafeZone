@@ -1,0 +1,88 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light nav-container" style="background-color: #0094FF;">
+        <div>
+            <a class="barra" routerLink="/place/main">UnsafeZone</a>
+            <a class="barra2" routerLink="/user/view" *ngIf="role == 'admin'">Usuarios</a> 
+        </div>
+        <div>
+            <button class="navbarIco" type="button" (click)="logout()">
+                <span class="bi bi-box-arrow-right"></span>
+            </button>
+            <button class="navbarIco" type="button" routerLink="/user/profile">
+                <span class="bi bi-person-fill"></span>
+            </button>
+        </div> 
+      </nav>
+  </header>
+<div class="container p-3 my-3 border" *ngIf="place">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img class="img-fluid" [src]="host+place.picture">
+            </div>
+            <div class="col">
+                <h5>Calle: {{place.street}}</h5>
+                <h5>Número: {{place.number}}</h5>
+                <h5>Colonia: {{place.suburb}}</h5>
+                <h5>Municipio: {{place.town}}</h5>
+                <h5>Estado: {{place.state}}</h5>
+                <h5>Nivel de inseguridad: {{place.score}}</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col pt-3">
+                <h5>Descripción</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col pt-3">
+                <p>{{place.description}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col pt-3">
+                <button class="btn" [routerLink]="'/place/update/'+place._id" *ngIf="role == 'admin'">Editar</button>
+            </div>
+            <div class="col pt-3">
+                <button class="btn2" (click)="deletePlace();" *ngIf="role == 'admin'">Eliminar</button>
+            </div>
+            <div class="col pt-3">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container p-3 my-3 border" *ngFor="let review of reviews;">
+    <div class="container" >
+        <div class="row">
+            <div class="col">
+                <h6>{{review.user.name}} {{review.user.lastName}}</h6>
+            </div>
+            <div class="col col-lg-1">
+                <button class="btn3" routerLink="/review/update" *ngIf="role == 'admin'" [routerLink]="'/review/update/'+review._id">Editar</button>
+            </div>
+            <div class="col col-lg-1">
+                <button class="btn4" *ngIf="role == 'admin'" (click)="deleteReview(review._id);">Eliminar</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h6>Nivel de inseguridad: {{review.score}}</h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>{{review.review}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img class="img-fluid" [src]="host+review.image">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col"></div>
+    <div class="col" *ngIf="place"><button class="btn5" [routerLink]="'/review/create/'+place._id">Comentario</button></div>
+    <div class="col"></div>
+</div>

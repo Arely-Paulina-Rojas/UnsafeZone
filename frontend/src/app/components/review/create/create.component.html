@@ -1,0 +1,59 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light nav-container" style="background-color: #0094FF;">
+        <div>
+            <a class="barra" routerLink="/place/main">UnsafeZone</a>
+            <a class="barra2" routerLink="/user/view" *ngIf="role == 'admin'">Usuarios</a> 
+        </div>
+        <div>
+            <button class="navbarIco" type="button" (click)="logout()">
+                <span class="bi bi-box-arrow-right"></span>
+            </button>
+            <button class="navbarIco" type="button" routerLink="/user/profile">
+                <span class="bi bi-person-fill"></span>
+            </button>
+        </div> 
+      </nav>
+  </header>
+<div class="container p-3 my-3 border">
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            Nivel de inseguridad
+          </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="number" class="form-control cajas2" name="score" [(ngModel)]="score">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col pt-3">
+              Descripción
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <textarea type="text" class="form-control cajas3" name="review" [(ngModel)]="review"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col pt-3">
+              Imagen
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="">
+                    <input type="file" class="custom-file-input" id="customFile1" name="image" (change)="uploadFile()">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col pt-5"></div>
+            <div class="col pt-5">
+                <button class="btn" (click)="create();">Publicar</button>
+            </div>
+            <div class="col pt-5"></div>
+        </div>
+    </div>
+</div>

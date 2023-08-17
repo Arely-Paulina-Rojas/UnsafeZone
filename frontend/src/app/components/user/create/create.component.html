@@ -1,0 +1,92 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light nav-container" style="background-color: #0094FF;">
+        <div>
+            <a class="barra" routerLink="/place/main">UnsafeZone</a>
+            <a class="barra2" routerLink="/user/view" *ngIf="role == 'admin'">Usuarios</a> 
+        </div>
+        <div>
+            <button class="navbarIco" type="button" (click)="logout()">
+                <span class="bi bi-box-arrow-right"></span>
+            </button>
+            <button class="navbarIco" type="button" routerLink="/user/profile">
+                <span class="bi bi-person-fill"></span>
+            </button>
+        </div> 
+      </nav>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+        </div>
+        <div class="col p-3 my-3 border">
+            <div class="row align-items-center">
+                <div class="col">
+                    <p>Nombre</p>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col">
+                    <input type="text" class="form-control cajas" name="name" [(ngModel)]="name">
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col pt-3">
+                    <p>Apellido</p>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col">
+                    <input type="text" class="form-control cajas" name="lastName" [(ngModel)]="lastName">
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col pt-3">
+                    <p>Email</p>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col">
+                    <input type="email" class="form-control cajas" name="email" [(ngModel)]="email">
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col pt-3">
+                    <p>Contraseña</p>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col">
+                    <input type="password" class="form-control cajas" name="password" [(ngModel)]="password">
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col pt-3">
+                    <p>Rol</p>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col">
+                    <select class="cajas" name="role" [(ngModel)]="role">
+                        <option>user</option>
+                        <option>admin</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                </div>
+                <div class="col pt-4">
+                    <button class="btn" (click)="create();">Guardar</button>
+                </div>
+                <div class="col">
+                </div>
+                
+            </div>
+        </div>
+        <div class="col">
+
+        </div>
+    </div>
+</div>
+

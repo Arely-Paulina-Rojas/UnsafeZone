@@ -1,0 +1,42 @@
+
+<div class="inicio">
+    <div class="row justify-content-center pt-5 inicio">
+        <div class="col-md-6 col-sm-8 col-xl-4 col-lg-5 formulario">
+            <form action="">
+                <div class="form-group text-center pt-3">
+                    <img class="img-fluid mx-auto d-block" src="../../../../assets/pictures/image-removebg-preview.png" width="90" height="95">
+                </div>
+
+                <div class="form-group mx-sm-4">
+                    <h6 class="">Nombre</h6>
+                    <input type="text" class="form-control cajas" name="name" [(ngModel)]="name">
+                </div>
+
+                <div class="form-group mx-sm-4 pt-3">
+                    <h6 class="">Apellido</h6>
+                    <input type="text" class="form-control cajas" name="lastName" [(ngModel)]="lastName">
+                </div>
+
+                <div class="form-group mx-sm-4 pt-3">
+                    <h6 class="">Correo electrónico</h6>
+                    <input type="email" class="form-control cajas" name="email" [(ngModel)]="email">
+                </div>
+
+                <div class="form-group mx-sm-4 pt-3">
+                    <h6 class="">Contraseña</h6>
+                    <input type="password" class="form-control cajas" name="password" [(ngModel)]="password">
+                </div>
+
+                <div class="form-group mx-sm-4 pt-3">
+                    <button type="button" class="crear" (click)="register();">Crear cuenta</button>
+                </div>
+
+                <div class="form-group mx-sm-4">
+                    <a routerLink="/user/login"><input type="button" class="ingresar" value="Iniciar sesión" name=""></a>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+
+</div>

@@ -1,0 +1,59 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light nav-container" style="background-color: #0094FF;">
+        <div>
+            <a class="barra" routerLink="/place/main">UnsafeZone</a>
+            <a class="barra2" routerLink="/user/view" *ngIf="role == 'admin'" >Usuarios</a> 
+        </div>
+        <div>
+            <button class="navbarIco" type="button" (click)="logout()">
+                <span class="bi bi-box-arrow-right"></span>
+            </button>
+            <button class="navbarIco" type="button" routerLink="/user/profile">
+                <span class="bi bi-person-fill"></span>
+            </button>
+        </div> 
+      </nav>
+  </header>
+<div class="container">
+    <div class="row">
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" routerLink="/user/profile">Perfil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/review/view">Reviews</a>
+            </li>
+          </ul>
+    </div>
+    <div class="container p-3 my-3 border" *ngFor="let review of reviews;">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h6>{{review.user.name}} {{review.user.lastName}}</h6>
+                </div>
+                <div class="col col-lg-1">
+                    <button class="btn3" routerLink="/review/update" [routerLink]="'/review/update/'+review._id">Editar</button>
+                </div>
+                <div class="col col-lg-1">
+                    <button class="btn4" (click)="deleteReview(review._id);">Eliminar</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h6>Nivel de inseguridad: {{review.score}} </h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>{{review.review}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img class="img-thumbnail" [src]="host+review.image" width="200" height="200">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
